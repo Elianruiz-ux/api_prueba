@@ -7,9 +7,47 @@
     <link rel="stylesheet" href="css/index.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="myOnLoad()">
 
-    
+    <select name="grupo" id="grupos" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+     <option>Grupo</option>
+    </select>
+
+      <select name="largoPierna" id="genDropdown">
+        <option>Largo pierna</option>
+       </select>
+       <select name="largoPuno" id="genDropdown2">
+        <option>Largo puño</option>
+       </select>
+
+
+
+<!-- 
+
+       <div>
+        <div class="dropdown__filtro_1">
+            <input id="toggle32" type="checkbox">
+            <label for="toggle32" class="animate">
+            <span>
+                <div class="icono__izq">
+                <img src="../assets/imagenes/grupotalla.png" alt="">
+            </div> 
+            </span>
+            Tipo calcetín
+            <span><div class="flecha">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Bold" viewBox="0 0 24 24" width="16" height="16"><path d="M1.51,6.079a1.492,1.492,0,0,1,1.06.44l7.673,7.672a2.5,2.5,0,0,0,3.536,0L21.44,6.529A1.5,1.5,0,1,1,23.561,8.65L15.9,16.312a5.505,5.505,0,0,1-7.778,0L.449,8.64A1.5,1.5,0,0,1,1.51,6.079Z"/></svg>
+
+            </div> </span>
+            </label>
+            <ul class="animate" >
+                <li><a>Deportivo<input type="checkbox" name=""></a></li>
+                <li><a>Casual<input type="checkbox" name="" id=""></a></li>
+                <li><a>Formal<input type="checkbox" name="" id=""></a></li>
+            </ul>
+        </div>
+    </div> -->
+
+
 
     <script src="js/index.js"></script>
 </body>

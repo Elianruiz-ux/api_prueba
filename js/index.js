@@ -67,8 +67,13 @@ console.log(resultadoPuno);
 
 // Mapeamos los jsons para traer los ids
 grupoMap = grupo.filter((x) => x !== null).map(x => x.id );
+grupoMapName = grupo.filter((x) => x !== null).map(x => x.name );
+
 piernaMap = resultadoPierna.filter((x) => x !== null).map(x => x.groupId );
+piernaMapName = resultadoPierna.filter((x) => x !== null).map(x => x.name );
+
 punoMap = resultadoPuno.filter((x) => x !== null).map(x => x.groupId );
+punoMapName = resultadoPuno.filter((x) => x !== null).map(x => x.name );
 
 console.log(grupoMap[0]);
 
@@ -76,21 +81,74 @@ console.log(grupoMap[0]);
 //mostrar las variables de acuerdo a ese id
 if(grupoMap[0] == 1){
      resultado = 'Grupo: '+ grupoMap[0] + ', Pierna: '+ piernaMap.slice(0,10);
-     console.log(resultado);
 }else{
     console.log('error');
 }
 
 if(grupoMap[1] == 2){
     resultado = 'Grupo: '+ grupoMap[1] + ', Pierna: '+ piernaMap.slice(10,33);
-    console.log(resultado);
 }else{
     console.log('error');
 }
 
 if(grupoMap[2] == 3){
     resultado = 'Grupo: '+ grupoMap[2] + ', Pierna: '+ piernaMap.slice(33,55);
-    console.log(resultado);
+
 }else{
     console.log('error');
 }
+
+function myOnLoad() {
+    cargar();
+}
+
+      //funcion para Cargar  campo <select>
+     function cargar() {
+        // == grupo[1]['name']
+        addOptions("grupo", grupoMapName );
+     }
+    
+      // agregar opciones a un <select>
+     function addOptions(domElement, array) {
+       var select = document.getElementsByName(domElement)[0];
+    
+       for (value in array) {
+         var option = document.createElement("option");
+         option.text = array[value];
+         select.add(option);
+       }
+     }
+    
+     function doHTML(list){
+        let string ="";
+        let index = 0;
+        list.forEach(element => {
+          string += `<option value="sub${index}">${element}</option>`;
+          
+        });
+        return string;
+      }
+      function dynamicdropdown(sem){
+        let subjects1 = piernaMapName.slice(0,10);
+        let subjects2 = punoMapName.slice(0,2);
+        let subjects3 = piernaMapName.slice(10,33);
+        let subjects4 = punoMapName.slice(2,7);
+        let subjects5 = piernaMapName.slice(33,55);
+        let subjects6 = punoMapName.slice(7,14);
+        let genDropdown = document.getElementById("genDropdown");
+        let genDropdown2 = document.getElementById("genDropdown2");
+
+        if(sem=="BEBES"){
+          genDropdown.innerHTML = doHTML(subjects1);
+          genDropdown2.innerHTML = doHTML(subjects2);
+        }
+        if(sem=="NIÑOS"){
+          genDropdown.innerHTML = doHTML(subjects3);
+          genDropdown2.innerHTML = doHTML(subjects4);
+        }
+        if(sem=="ADULTOS"){
+          genDropdown.innerHTML = doHTML(subjects5);
+          genDropdown2.innerHTML = doHTML(subjects6);
+        }
+  
+      }
