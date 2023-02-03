@@ -56,14 +56,14 @@ for (let keyPuno in jsonVarsLargoPuno) {
 }
 
 
-console.log("------------------------ grupo ----------------------");
-console.log(grupo);
+// console.log("------------------------ grupo ----------------------");
+// console.log(grupo);
 
-console.log("------------------------ Largo pierna ----------------------");
-console.log(resultadoPierna);
+// console.log("------------------------ Largo pierna ----------------------");
+// console.log(resultadoPierna);
 
-console.log("------------------------ Largo puño ----------------------");
-console.log(resultadoPuno);
+// console.log("------------------------ Largo puño ----------------------");
+// console.log(resultadoPuno);
 
 // Mapeamos los jsons para traer los ids
 grupoMap = grupo.filter((x) => x !== null).map(x => x.id );
@@ -104,8 +104,9 @@ function myOnLoad() {
 
       //funcion para Cargar  campo <select>
      function cargar() {
-        // == grupo[1]['name']
         addOptions("grupo", grupoMapName );
+        addOptions("largoPierna", piernaMapName.slice(0,10) );
+        addOptions("largoPuno", punoMapName.slice(0,2) );
      }
     
       // agregar opciones a un <select>
@@ -131,10 +132,13 @@ function myOnLoad() {
       function dynamicdropdown(sem){
         let subjects1 = piernaMapName.slice(0,10);
         let subjects2 = punoMapName.slice(0,2);
+
         let subjects3 = piernaMapName.slice(10,33);
         let subjects4 = punoMapName.slice(2,7);
+
         let subjects5 = piernaMapName.slice(33,55);
         let subjects6 = punoMapName.slice(7,14);
+
         let genDropdown = document.getElementById("genDropdown");
         let genDropdown2 = document.getElementById("genDropdown2");
 
@@ -152,3 +156,7 @@ function myOnLoad() {
         }
   
       }
+      
+    //   console.log(grupoMap)
+    //   console.log(piernaMap)
+    //   console.log(grupoMap[0] = piernaMap.filter((x) => x == piernaMap[0]));

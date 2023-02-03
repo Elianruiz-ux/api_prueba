@@ -279,4 +279,9 @@
     }
   
   /*fin seccion de filtros*/
-    
+
+
+
+.btn{
+    cursor: no-drop;
+}
